@@ -5,7 +5,6 @@ import java.io.IOException;
 import objects.OrderForm;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -24,7 +23,7 @@ public class UZdTest extends DriverSetup {
 	public void init() throws IOException {
 		driver = setUp();
 
-		orderForm = PageFactory.initElements(driver, OrderForm.class);
+		orderForm = new OrderForm(driver);
 	}
 
 	@Test

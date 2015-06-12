@@ -1,16 +1,23 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.qafactory.booking</groupId>
-  <artifactId>bookingtest</artifactId>
-  <version>1.0</version>
-  <name>Booking Test</name>
- 
- 	<properties>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.qafactory.booking</groupId>
+	<artifactId>bookingtest</artifactId>
+	<version>1.0</version>
+	<name>Booking Test</name>
+
+	<properties>
 		<aspectj.version>1.7.4</aspectj.version>
 		<allure.version>1.4.13</allure.version>
 	</properties>
 
 	<dependencies>
+		<dependency>
+			<groupId>ru.yandex.qatools.htmlelements</groupId>
+			<artifactId>htmlelements-all</artifactId>
+			<version>1.13</version>
+		</dependency>
+
 		<dependency>
 			<groupId>org.testng</groupId>
 			<artifactId>testng</artifactId>

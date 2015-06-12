@@ -2,12 +2,17 @@ package objects;
 
 import java.util.concurrent.TimeUnit;
 
+import objects.components.StationEnter;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import ru.yandex.qatools.htmlelements.loader.decorator.HtmlElementDecorator;
 
 public class OrderForm {
 
@@ -15,13 +20,13 @@ public class OrderForm {
 
 	public OrderForm(WebDriver driver) {
 		this.driver = driver;
+		PageFactory.initElements(new HtmlElementDecorator(driver), this);
 	}
 
-	@FindBy(name = "station_from")
-	private WebElement setFrom;
+	private StationEnter setFrom;
 
 	@FindBy(name = "station_till")
-	private WebElement setWhere;
+	private StationEnter setWhere;
 
 	@FindBy(name = "date_dep")
 	private WebElement setDate;
@@ -32,24 +37,15 @@ public class OrderForm {
 	@FindBy(name = "search")
 	private WebElement submit;
 
-	public void setFrom(String value) {
+	public void setFrom(String stationName) {
 
-		setFrom.sendKeys(value);
-		WebElement myElement = (new WebDriverWait(driver, 20))
-				.until(ExpectedConditions.elementToBeClickable(By
-						.xpath(".//*[@id='stations_from']/div[1]")));
-		driver.findElement(By.xpath(".//*[@id='stations_from']/div[1]"))
-				.click();
+		setFrom.search(stationName);
 
 	}
 
-	public void setWhere(String value) {
+	public void setWhere(String stationName) {
 
-		setWhere.sendKeys(value);
-		WebElement myElement = (new WebDriverWait(driver, 20))
-				.until(ExpectedConditions.elementToBeClickable(By
-						.xpath(".//*[@id='stations_till']/div")));
-		driver.findElement(By.xpath(".//*[@id='stations_till']/div")).click();
+		setWhere.search(stationName);
 
 	}
 
